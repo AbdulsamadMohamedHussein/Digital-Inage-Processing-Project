@@ -71,3 +71,115 @@ Understanding how different AI models perform under these conditions is **critic
 - **Image Format:** JPEG
 
 ### Data Split
+
+### Balanced Test Set
+| Class | Training | Validation | Test |
+|-------|----------|------------|------|
+| NORMAL | 1,267 | 158 | 238 |
+| PNEUMONIA | 3,426 | 428 | 641 |
+
+---
+
+## 🧠 Models Implemented
+
+| Model | Architecture Type | Parameters | Strengths |
+|-------|------------------|------------|------------|
+| **VGG16** | Convolutional Neural Network | 138M | Classic, well-understood |
+| **ResNet50** | Residual CNN | 25M | Skip connections, deep architecture |
+| **ViT Base** | Vision Transformer | 86M | Attention mechanism, global context |
+| **EfficientNetB0** | Efficient CNN | 5.3M | Compound scaling, efficient |
+| **MobileNetV2** | Lightweight CNN | 3.5M | Mobile-optimized, fast inference |
+
+---
+
+## 🔬 Experimental Design
+
+### 3 × 5 Factorial Design
+
+### Noise Parameters
+```python
+GAUSSIAN_NOISE = {
+    'mean': 0,
+    'sigma': 25  # Moderate noise intensity
+}
+
+SALT_PEPPER_NOISE = {
+    'probability': 0.03  # 3% of pixels affected
+}
+MEDIAN_FILTER = {
+    'kernel_size': 3  # Removes salt & pepper
+}
+
+GAUSSIAN_FILTER = {
+    'kernel_size': (3, 3),
+    'sigma': 1.5  # Smooths Gaussian noise
+}
+chest-xray-pneumonia-detection/
+│
+├── 📂 models/
+│   ├── vgg16_original.py
+│   ├── vgg16_noisy.py
+│   ├── vgg16_denoised.py
+│   ├── resnet50_original.py
+│   ├── resnet50_noisy.py
+│   ├── resnet50_denoised.py
+│   ├── vit_base_original.py
+│   ├── vit_base_noisy.py
+│   ├── vit_base_denoised.py
+│   ├── efficientnetb0_original.py
+│   ├── efficientnetb0_noisy.py
+│   ├── efficientnetb0_denoised.py
+│   ├── mobilenetv2_original.py
+│   ├── mobilenetv2_noisy.py
+│   └── mobilenetv2_denoised.py
+│
+├── 📂 plots/
+│   ├── vgg16_original/
+│   ├── vgg16_noisy/
+│   ├── vgg16_denoised/
+│   └── ... (similar for all models)
+│
+├── 📂 results/
+│   ├── classification_reports/
+│   ├── confusion_matrices/
+│   ├── roc_curves/
+│   └── training_logs/
+│
+├── 📂 data/
+│   └── chest_xray/
+│       ├── train/
+│       ├── val/
+│       └── test/
+│
+├── README.md
+├── requirements.txt
+└── LICENSE
+🛠 Installation & Setup
+Prerequisites
+Python 3.8+
+CUDA-capable GPU (recommended for faster training)
+
+Step 1: Clone the Repository
+git clone https://github.com/AbdulsamadMohamedHussein/chest-xray-pneumonia-detection.git
+cd chest-xray-pneumonia-detection
+Step 2: Create Virtual Environment
+# Windows
+python -m venv tf_env
+tf_env\Scripts\activate
+
+# Linux/Mac
+python -m venv tf_env
+source tf_env/bin/activate
+Step 3: Install Dependencies
+pip install -r requirements.txt
+requirements.txt
+tensorflow>=2.13.0
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+scikit-learn>=1.2.0
+opencv-python>=4.8.0
+pillow>=9.5.0
+scipy>=1.10.0
+
