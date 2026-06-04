@@ -1,0 +1,14 @@
+EFFICIENTNETB0 - ORIGINAL DATASET (50 EPOCHS)
+============================================================
+Test Accuracy: 0.9613
+Test Loss: 0.1621
+============================================================
+
+              precision    recall  f1-score   support
+
+      NORMAL     0.8893    0.9790    0.9320       238
+   PNEUMONIA     0.9919    0.9548    0.9730       641
+
+    accuracy                         0.9613       879
+   macro avg     0.9406    0.9669    0.9525       879
+weighted avg     0.9641    0.9613    0.9619       879
